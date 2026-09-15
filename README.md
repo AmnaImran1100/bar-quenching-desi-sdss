@@ -224,7 +224,7 @@ Code (`src/`, `config.py`) is MIT licensed: [LICENSE](LICENSE). Derived data, fi
 
 To cite this repository, use [CITATION.cff](CITATION.cff). Release v1.0.0 is archived on Zenodo with the version DOI [10.5281/zenodo.22774685](https://doi.org/10.5281/zenodo.22774685); the concept DOI [10.5281/zenodo.22774684](https://doi.org/10.5281/zenodo.22774684) always resolves to the latest version.
 
-> Nagi, A. I. (2026). *bar-quenching-desi-sdss* (v1.0.0) [Software and data]. Zenodo. https://doi.org/10.5281/zenodo.22774685
+> Nagi, A. I. (2026). *bar-quenching-desi-sdss: a controlled comparison of bar strength and quenching* (Version v1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22774685
 
 
 Please also credit the source catalogues and the methods relevant to your reuse:
