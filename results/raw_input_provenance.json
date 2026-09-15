@@ -1,0 +1,27 @@
+{
+  "galaxy_zoo_record": "https://zenodo.org/records/8331338",
+  "galaxy_zoo_version": "1.0.0",
+  "sdss_source": "https://data.sdss.org/sas/dr8/common/sdss-spectro/redux/",
+  "files": {
+    "data/raw/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "data/raw/external_catalog.parquet": {
+      "bytes": 1616696610,
+      "sha256": "7cd9fb440b1ec9737137ca961cee17024b618d1b91a53308551de84f9b0e4d5a"
+    },
+    "data/raw/galSpecExtra-dr8.fits": {
+      "bytes": 355749120,
+      "sha256": "c2f8d1454385b855bec153063d1b04782f44a3f8fe4e0bb97adf8fddecd02310"
+    },
+    "data/raw/galSpecInfo-dr8.fits": {
+      "bytes": 381551040,
+      "sha256": "12732dd759aac94838077cb3c30f16157f4e2b40c6c67a838f07288ff1fb5eec"
+    },
+    "data/raw/gz_desi_deep_learning_catalog_friendly.parquet": {
+      "bytes": 658807517,
+      "sha256": "90a78648e1b1aa7642e7cb03c32fc932bdf5c04e2c42ed6bb722aa1ecbd9f1c8"
+    }
+  }
+}

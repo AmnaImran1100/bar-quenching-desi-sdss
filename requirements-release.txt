@@ -1,0 +1,10 @@
+# Versions used for the release rebuild; Python 3.14.6
+# Direct analysis dependencies, not a complete transitive environment lock.
+numpy==2.5.1
+pandas==3.0.5
+scipy==1.18.0
+astropy==8.0.1
+scikit-learn==1.9.0
+matplotlib==3.11.1
+pyarrow==25.0.1
+tqdm==4.70.0

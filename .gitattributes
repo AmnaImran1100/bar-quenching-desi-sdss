@@ -1,0 +1,7 @@
+# Store and check out text with LF endings on every platform, so the
+# SHA-256 fingerprints recorded in results/*.provenance.json match a fresh clone.
+* text=auto eol=lf
+*.parquet binary
+*.fits binary
+*.pdf binary
+*.png binary

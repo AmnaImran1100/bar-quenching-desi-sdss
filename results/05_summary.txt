@@ -1,0 +1,365 @@
+05_bar_test.py -- conditional bar-quenching associations (Methods A-E)
+
+  Method-A cache: DISABLED (--force-recompute)
+
+  frame[comparison]: 95,227 in-sample main discs; low-z slice 5,179
+  frame[conventional]: 95,447 in-sample main discs; low-z slice 5,192
+
+========================================================================
+METHOD A -- Random-Forest feature importance (report, do not headline)
+========================================================================
+------------------------------------------------------------------------
+  Method A [comparison:main]
+    galaxies (green valley removed) .    83,761   quenched 14,109 (0.168)
+    features: ['log_mass', 'bulge_prominence', 'bar_strength', 'spiral', 'random_control']
+    repeat  25/200   AUC(median so far)=0.887
+    repeat  50/200   AUC(median so far)=0.887
+    repeat  75/200   AUC(median so far)=0.887
+    repeat 100/200   AUC(median so far)=0.887
+    repeat 125/200   AUC(median so far)=0.887
+    repeat 150/200   AUC(median so far)=0.887
+    repeat 175/200   AUC(median so far)=0.887
+    repeat 200/200   AUC(median so far)=0.887
+    tuned leaf=150   median test AUC=0.887 [0.883,0.891]
+    perm-importance ranking:
+      log_mass           perm=+0.1934 (+0.1860,+0.2022)  gini=0.6623
+      spiral             perm=+0.0518 (+0.0450,+0.0570)  gini=0.1449
+      bulge_prominence   perm=+0.0348 (+0.0309,+0.0431)  gini=0.1637
+      bar_strength       perm=+0.0091 (+0.0077,+0.0108)  gini=0.0299
+      random_control     perm=+0.0000 (-0.0001,+0.0001)  gini=0.0015
+    -> bar_strength above random-control floor: YES (bar perm +0.0091 vs random +0.0000)
+------------------------------------------------------------------------
+  Method A [comparison:sigma]
+    galaxies (green valley removed) .    48,701   quenched 12,908 (0.265)
+    features: ['log_mass', 'bulge_prominence', 'bar_strength', 'spiral', 'sigma_c', 'random_control']
+    repeat  25/200   AUC(median so far)=0.866
+    repeat  50/200   AUC(median so far)=0.866
+    repeat  75/200   AUC(median so far)=0.866
+    repeat 100/200   AUC(median so far)=0.866
+    repeat 125/200   AUC(median so far)=0.866
+    repeat 150/200   AUC(median so far)=0.866
+    repeat 175/200   AUC(median so far)=0.866
+    repeat 200/200   AUC(median so far)=0.865
+    tuned leaf=100   median test AUC=0.865 [0.861,0.870]
+    perm-importance ranking:
+      sigma_c            perm=+0.0962 (+0.0817,+0.1158)  gini=0.5826
+      spiral             perm=+0.0845 (+0.0769,+0.0916)  gini=0.2306
+      log_mass           perm=+0.0353 (+0.0276,+0.0459)  gini=0.0905
+      bar_strength       perm=+0.0130 (+0.0115,+0.0145)  gini=0.0493
+      bulge_prominence   perm=+0.0108 (+0.0088,+0.0137)  gini=0.0438
+      random_control     perm=-0.0000 (-0.0001,+0.0001)  gini=0.0034
+    -> bar_strength above random-control floor: YES (bar perm +0.0130 vs random -0.0000)
+    wrote 05a_rf_importance_comparison.csv
+------------------------------------------------------------------------
+  Method A [conventional:main]
+    galaxies (green valley removed) .    83,929   quenched 14,176 (0.169)
+    features: ['log_mass', 'bulge_prominence', 'bar_strength', 'spiral', 'random_control']
+    repeat  25/200   AUC(median so far)=0.884
+    repeat  50/200   AUC(median so far)=0.884
+    repeat  75/200   AUC(median so far)=0.884
+    repeat 100/200   AUC(median so far)=0.884
+    repeat 125/200   AUC(median so far)=0.883
+    repeat 150/200   AUC(median so far)=0.883
+    repeat 175/200   AUC(median so far)=0.884
+    repeat 200/200   AUC(median so far)=0.884
+    tuned leaf=250   median test AUC=0.884 [0.879,0.887]
+    perm-importance ranking:
+      log_mass           perm=+0.1975 (+0.1884,+0.2059)  gini=0.6744
+      spiral             perm=+0.0506 (+0.0445,+0.0558)  gini=0.1406
+      bulge_prominence   perm=+0.0396 (+0.0350,+0.0457)  gini=0.1624
+      bar_strength       perm=+0.0073 (+0.0057,+0.0093)  gini=0.0228
+      random_control     perm=-0.0000 (-0.0001,+0.0001)  gini=0.0004
+    -> bar_strength above random-control floor: YES (bar perm +0.0073 vs random -0.0000)
+------------------------------------------------------------------------
+  Method A [conventional:sigma]
+    galaxies (green valley removed) .    48,826   quenched 12,974 (0.266)
+    features: ['log_mass', 'bulge_prominence', 'bar_strength', 'spiral', 'sigma_c', 'random_control']
+    repeat  25/200   AUC(median so far)=0.862
+    repeat  50/200   AUC(median so far)=0.862
+    repeat  75/200   AUC(median so far)=0.863
+    repeat 100/200   AUC(median so far)=0.863
+    repeat 125/200   AUC(median so far)=0.863
+    repeat 150/200   AUC(median so far)=0.863
+    repeat 175/200   AUC(median so far)=0.863
+    repeat 200/200   AUC(median so far)=0.863
+    tuned leaf=150   median test AUC=0.863 [0.859,0.867]
+    perm-importance ranking:
+      sigma_c            perm=+0.1041 (+0.0868,+0.1205)  gini=0.5989
+      spiral             perm=+0.0873 (+0.0800,+0.0959)  gini=0.2336
+      log_mass           perm=+0.0324 (+0.0253,+0.0424)  gini=0.0883
+      bar_strength       perm=+0.0115 (+0.0102,+0.0130)  gini=0.0421
+      bulge_prominence   perm=+0.0091 (+0.0074,+0.0112)  gini=0.0353
+      random_control     perm=+0.0000 (-0.0001,+0.0001)  gini=0.0013
+    -> bar_strength above random-control floor: YES (bar perm +0.0115 vs random +0.0000)
+    wrote 05a_rf_importance_conventional.csv
+========================================================================
+METHOD B -- controlled (mass, bulge) binning  [HEADLINE]
+  grid 6 x 5 quantile bins; cell valid iff >= 30 barred AND unbarred
+========================================================================
+  [comparison] mass edges  = 9.50, 10.03, 10.33, 10.54, 10.73, 10.93, 12.38
+  [comparison] bulge edges = 0.38, 1.26, 1.41, 1.57, 1.78, 3.25
+    comparison   all         all       [no-z] : 30 valid cells  <Delta q>_FE=+0.0095+/-0.0013  <Delta q>_RE=+0.0262+/-0.0043  Q/dof=245/29 I2=0.88  frac>0=0.83  sig +17/-1
+    comparison   all         all       [z-ctl]: 90 valid cells  <Delta q>_FE=+0.0046+/-0.0012  <Delta q>_RE=+0.0124+/-0.0022  Q/dof=233/89 I2=0.62  frac>0=0.77  sig +23/-3
+    comparison   all         agn_clean [no-z] : 30 valid cells  <Delta q>_FE=+0.0010+/-0.0011  <Delta q>_RE=+0.0046+/-0.0020  Q/dof=67/29 I2=0.57  frac>0=0.73  sig +6/-2
+    comparison   all         agn_clean [z-ctl]: 89 valid cells  <Delta q>_FE=-0.0000+/-0.0011  <Delta q>_RE=+0.0007+/-0.0013  Q/dof=100/88 I2=0.12  frac>0=0.61  sig +3/-1
+    comparison   strong_only all       [no-z] : 30 valid cells  <Delta q>_FE=+0.0353+/-0.0029  <Delta q>_RE=+0.0744+/-0.0107  Q/dof=312/29 I2=0.91  frac>0=0.97  sig +25/-1
+    comparison   strong_only all       [z-ctl]: 75 valid cells  <Delta q>_FE=+0.0267+/-0.0032  <Delta q>_RE=+0.0369+/-0.0054  Q/dof=188/74 I2=0.61  frac>0=0.81  sig +34/-1
+    comparison   strong_only agn_clean [no-z] : 29 valid cells  <Delta q>_FE=+0.0026+/-0.0026  <Delta q>_RE=+0.0137+/-0.0047  Q/dof=63/28 I2=0.55  frac>0=0.79  sig +7/-1
+    comparison   strong_only agn_clean [z-ctl]: 64 valid cells  <Delta q>_FE=-0.0010+/-0.0033  <Delta q>_RE=-0.0007+/-0.0033  Q/dof=65/63 I2=0.03  frac>0=0.55  sig +9/-0
+    comparison   weak_only   all       [no-z] : 30 valid cells  <Delta q>_FE=+0.0010+/-0.0014  <Delta q>_RE=+0.0067+/-0.0029  Q/dof=99/29 I2=0.71  frac>0=0.70  sig +8/-3
+    comparison   weak_only   all       [z-ctl]: 89 valid cells  <Delta q>_FE=+0.0006+/-0.0012  <Delta q>_RE=+0.0036+/-0.0018  Q/dof=144/88 I2=0.39  frac>0=0.61  sig +8/-2
+    comparison   weak_only   agn_clean [no-z] : 30 valid cells  <Delta q>_FE=-0.0011+/-0.0012  <Delta q>_RE=+0.0009+/-0.0018  Q/dof=49/29 I2=0.41  frac>0=0.60  sig +3/-2
+    comparison   weak_only   agn_clean [z-ctl]: 85 valid cells  <Delta q>_FE=-0.0014+/-0.0012  <Delta q>_RE=-0.0014+/-0.0012  Q/dof=76/84 I2=0.00  frac>0=0.52  sig +4/-0
+    wrote 05b_controlled_binning_comparison_*.csv (+ zsliced variants)
+  [conventional] mass edges  = 9.50, 10.03, 10.33, 10.55, 10.73, 10.93, 12.38
+  [conventional] bulge edges = 0.38, 1.26, 1.41, 1.57, 1.78, 3.25
+    conventional all         all       [no-z] : 30 valid cells  <Delta q>_FE=+0.0095+/-0.0013  <Delta q>_RE=+0.0263+/-0.0043  Q/dof=246/29 I2=0.88  frac>0=0.83  sig +16/-1
+    conventional all         all       [z-ctl]: 90 valid cells  <Delta q>_FE=+0.0046+/-0.0012  <Delta q>_RE=+0.0126+/-0.0023  Q/dof=240/89 I2=0.63  frac>0=0.77  sig +24/-3
+    conventional all         agn_clean [no-z] : 30 valid cells  <Delta q>_FE=+0.0010+/-0.0011  <Delta q>_RE=+0.0046+/-0.0020  Q/dof=66/29 I2=0.56  frac>0=0.73  sig +6/-2
+    conventional all         agn_clean [z-ctl]: 89 valid cells  <Delta q>_FE=+0.0000+/-0.0011  <Delta q>_RE=+0.0008+/-0.0013  Q/dof=102/88 I2=0.13  frac>0=0.60  sig +3/-1
+    conventional strong_only all       [no-z] : 30 valid cells  <Delta q>_FE=+0.0356+/-0.0029  <Delta q>_RE=+0.0752+/-0.0108  Q/dof=318/29 I2=0.91  frac>0=0.97  sig +25/-1
+    conventional strong_only all       [z-ctl]: 75 valid cells  <Delta q>_FE=+0.0275+/-0.0032  <Delta q>_RE=+0.0381+/-0.0055  Q/dof=198/74 I2=0.63  frac>0=0.81  sig +36/-1
+    conventional strong_only agn_clean [no-z] : 29 valid cells  <Delta q>_FE=+0.0027+/-0.0026  <Delta q>_RE=+0.0140+/-0.0047  Q/dof=63/28 I2=0.55  frac>0=0.79  sig +8/-1
+    conventional strong_only agn_clean [z-ctl]: 64 valid cells  <Delta q>_FE=-0.0010+/-0.0032  <Delta q>_RE=-0.0004+/-0.0034  Q/dof=67/63 I2=0.06  frac>0=0.53  sig +9/-0
+    conventional weak_only   all       [no-z] : 30 valid cells  <Delta q>_FE=+0.0009+/-0.0013  <Delta q>_RE=+0.0063+/-0.0029  Q/dof=97/29 I2=0.70  frac>0=0.70  sig +8/-3
+    conventional weak_only   all       [z-ctl]: 89 valid cells  <Delta q>_FE=+0.0005+/-0.0012  <Delta q>_RE=+0.0035+/-0.0018  Q/dof=143/88 I2=0.38  frac>0=0.61  sig +8/-2
+    conventional weak_only   agn_clean [no-z] : 30 valid cells  <Delta q>_FE=-0.0011+/-0.0012  <Delta q>_RE=+0.0007+/-0.0017  Q/dof=48/29 I2=0.39  frac>0=0.57  sig +3/-2
+    conventional weak_only   agn_clean [z-ctl]: 85 valid cells  <Delta q>_FE=-0.0013+/-0.0012  <Delta q>_RE=-0.0013+/-0.0012  Q/dof=75/84 I2=0.00  frac>0=0.52  sig +4/-0
+    wrote 05b_controlled_binning_conventional_*.csv (+ zsliced variants)
+========================================================================
+METHOD B robustness -- quenched-DEFINITION stability (z-controlled, comparison, full sample)
+========================================================================
+  all         delta_sfr (fiducial)  : FE <Delta q>=+0.0046+/-0.0012  RE <Delta q>=+0.0124+/-0.0022  (90 cells, frac>0=0.77, sig +23/-3)
+  all         ssfr<-10.5            : FE <Delta q>=+0.0246+/-0.0020  RE <Delta q>=+0.0475+/-0.0052  (90 cells, frac>0=0.81, sig +43/-5)
+  all         ssfr<-11.0            : FE <Delta q>=+0.0072+/-0.0013  RE <Delta q>=+0.0200+/-0.0027  (90 cells, frac>0=0.78, sig +30/-2)
+  all         ssfr<-11.5            : FE <Delta q>=+0.0021+/-0.0009  RE <Delta q>=+0.0068+/-0.0016  (90 cells, frac>0=0.70, sig +15/-1)
+  strong_only delta_sfr (fiducial)  : FE <Delta q>=+0.0267+/-0.0032  RE <Delta q>=+0.0369+/-0.0054  (75 cells, frac>0=0.81, sig +34/-1)
+  strong_only ssfr<-10.5            : FE <Delta q>=+0.0601+/-0.0041  RE <Delta q>=+0.0952+/-0.0105  (75 cells, frac>0=0.83, sig +45/-0)
+  strong_only ssfr<-11.0            : FE <Delta q>=+0.0309+/-0.0034  RE <Delta q>=+0.0479+/-0.0064  (75 cells, frac>0=0.81, sig +39/-1)
+  strong_only ssfr<-11.5            : FE <Delta q>=+0.0178+/-0.0027  RE <Delta q>=+0.0257+/-0.0044  (75 cells, frac>0=0.76, sig +28/-1)
+    wrote 05b_quench_robustness.csv
+========================================================================
+METHOD C -- rank partial correlation  corr(bar_strength, Delta SFR)
+  response = CONTINUOUS delta_sfr; controls added cumulatively.
+========================================================================
+  [comparison / all / strong+weak]  n=95,227 (sigma tier 57,470)
+      controls=none             pcc=-0.1595  [-0.1626, -0.1565]
+      controls=mass             pcc=-0.1012  [-0.1043, -0.0980]
+      controls=mass+bulge       pcc=-0.0925  [-0.0957, -0.0893]
+      controls=mass+bulge+z     pcc=-0.0571  [-0.0603, -0.0539]
+      controls=none             pcc=-0.1432  [-0.1473, -0.1394]
+      controls=mass             pcc=-0.1190  [-0.1234, -0.1149]
+      controls=mass+bulge       pcc=-0.1035  [-0.1077, -0.0993]
+      controls=mass+bulge+z     pcc=-0.0775  [-0.0818, -0.0734]
+      controls=mass+bulge+sigma+z pcc=-0.0774  [-0.0816, -0.0733]
+      controls=mass+bulge+sigma pcc=-0.1019  [-0.1061, -0.0980]
+  [comparison / all / strong_only]  n=65,903 (sigma tier 39,331)
+      controls=none             pcc=-0.1410  [-0.1452, -0.1372]
+      controls=mass             pcc=-0.0752  [-0.0793, -0.0715]
+      controls=mass+bulge       pcc=-0.0677  [-0.0719, -0.0642]
+      controls=mass+bulge+z     pcc=-0.0154  [-0.0193, -0.0117]
+      controls=none             pcc=-0.1182  [-0.1229, -0.1128]
+      controls=mass             pcc=-0.1013  [-0.1061, -0.0958]
+      controls=mass+bulge       pcc=-0.0867  [-0.0917, -0.0813]
+      controls=mass+bulge+z     pcc=-0.0426  [-0.0477, -0.0371]
+      controls=mass+bulge+sigma+z pcc=-0.0407  [-0.0458, -0.0352]
+      controls=mass+bulge+sigma pcc=-0.0814  [-0.0863, -0.0759]
+  [comparison / agn_clean / strong+weak]  n=62,967 (sigma tier 28,755)
+      controls=none             pcc=+0.0061  [+0.0024, +0.0100]
+      controls=mass             pcc=+0.0109  [+0.0070, +0.0147]
+      controls=mass+bulge       pcc=-0.0039  [-0.0076, -0.0000]
+      controls=mass+bulge+z     pcc=+0.0183  [+0.0142, +0.0222]
+      controls=none             pcc=-0.0009  [-0.0073, +0.0049]
+      controls=mass             pcc=+0.0040  [-0.0023, +0.0099]
+      controls=mass+bulge       pcc=-0.0111  [-0.0174, -0.0052]
+      controls=mass+bulge+z     pcc=+0.0084  [+0.0022, +0.0141]
+      controls=mass+bulge+sigma+z pcc=+0.0060  [-0.0001, +0.0119]
+      controls=mass+bulge+sigma pcc=-0.0135  [-0.0199, -0.0076]
+  [comparison / agn_clean / strong_only]  n=44,802 (sigma tier 20,451)
+      controls=none             pcc=+0.0248  [+0.0202, +0.0297]
+      controls=mass             pcc=+0.0378  [+0.0334, +0.0429]
+      controls=mass+bulge       pcc=+0.0213  [+0.0167, +0.0261]
+      controls=mass+bulge+z     pcc=+0.0565  [+0.0520, +0.0613]
+      controls=none             pcc=+0.0279  [+0.0207, +0.0349]
+      controls=mass             pcc=+0.0347  [+0.0277, +0.0418]
+      controls=mass+bulge       pcc=+0.0199  [+0.0127, +0.0273]
+      controls=mass+bulge+z     pcc=+0.0526  [+0.0451, +0.0601]
+      controls=mass+bulge+sigma+z pcc=+0.0511  [+0.0436, +0.0587]
+      controls=mass+bulge+sigma pcc=+0.0187  [+0.0115, +0.0262]
+  [conventional / all / strong+weak]  n=95,447 (sigma tier 57,642)
+      controls=none             pcc=-0.1602  [-0.1639, -0.1568]
+      controls=mass             pcc=-0.1020  [-0.1054, -0.0986]
+      controls=mass+bulge       pcc=-0.0932  [-0.0968, -0.0899]
+      controls=mass+bulge+z     pcc=-0.0578  [-0.0612, -0.0545]
+      controls=none             pcc=-0.1438  [-0.1480, -0.1398]
+      controls=mass             pcc=-0.1199  [-0.1240, -0.1159]
+      controls=mass+bulge       pcc=-0.1042  [-0.1084, -0.1003]
+      controls=mass+bulge+z     pcc=-0.0783  [-0.0824, -0.0741]
+      controls=mass+bulge+sigma+z pcc=-0.0782  [-0.0824, -0.0742]
+      controls=mass+bulge+sigma pcc=-0.1027  [-0.1068, -0.0989]
+  [conventional / all / strong_only]  n=66,069 (sigma tier 39,465)
+      controls=none             pcc=-0.1427  [-0.1462, -0.1390]
+      controls=mass             pcc=-0.0767  [-0.0805, -0.0729]
+      controls=mass+bulge       pcc=-0.0692  [-0.0730, -0.0654]
+      controls=mass+bulge+z     pcc=-0.0163  [-0.0202, -0.0128]
+      controls=none             pcc=-0.1199  [-0.1250, -0.1149]
+      controls=mass             pcc=-0.1031  [-0.1080, -0.0981]
+      controls=mass+bulge       pcc=-0.0884  [-0.0935, -0.0832]
+      controls=mass+bulge+z     pcc=-0.0439  [-0.0491, -0.0389]
+      controls=mass+bulge+sigma+z pcc=-0.0420  [-0.0473, -0.0371]
+      controls=mass+bulge+sigma pcc=-0.0830  [-0.0882, -0.0781]
+  [conventional / agn_clean / strong+weak]  n=63,059 (sigma tier 28,801)
+      controls=none             pcc=+0.0053  [+0.0018, +0.0094]
+      controls=mass             pcc=+0.0101  [+0.0065, +0.0141]
+      controls=mass+bulge       pcc=-0.0047  [-0.0084, -0.0008]
+      controls=mass+bulge+z     pcc=+0.0176  [+0.0137, +0.0217]
+      controls=none             pcc=-0.0017  [-0.0078, +0.0045]
+      controls=mass             pcc=+0.0032  [-0.0025, +0.0093]
+      controls=mass+bulge       pcc=-0.0120  [-0.0177, -0.0057]
+      controls=mass+bulge+z     pcc=+0.0076  [+0.0015, +0.0140]
+      controls=mass+bulge+sigma+z pcc=+0.0053  [-0.0008, +0.0116]
+      controls=mass+bulge+sigma pcc=-0.0143  [-0.0201, -0.0081]
+  [conventional / agn_clean / strong_only]  n=44,866 (sigma tier 20,484)
+      controls=none             pcc=+0.0235  [+0.0186, +0.0285]
+      controls=mass             pcc=+0.0366  [+0.0318, +0.0414]
+      controls=mass+bulge       pcc=+0.0201  [+0.0152, +0.0248]
+      controls=mass+bulge+z     pcc=+0.0556  [+0.0506, +0.0603]
+      controls=none             pcc=+0.0266  [+0.0193, +0.0333]
+      controls=mass             pcc=+0.0335  [+0.0263, +0.0402]
+      controls=mass+bulge       pcc=+0.0186  [+0.0111, +0.0254]
+      controls=mass+bulge+z     pcc=+0.0516  [+0.0442, +0.0586]
+      controls=mass+bulge+sigma+z pcc=+0.0501  [+0.0428, +0.0572]
+      controls=mass+bulge+sigma pcc=+0.0174  [+0.0105, +0.0243]
+    wrote 05c_partial_correlation.csv
+========================================================================
+METHOD D -- fibre-sSFR comparison with Liu & Zhou (strong-barred vs unbarred)
+========================================================================
+  [suppression/comparison/all] mass-only (n_s=3107, n_u=27714): d(median sSFR_fib)=+0.0615 [+0.0445,+0.0746]
+  [suppression/comparison/all] mass+bulge cells (15 cells, band 9.5-10.5): within-cell d(median sSFR_fib)=+0.0929 [+0.0727,+0.1075]
+  [suppression/comparison/all] z-slice LZ_z<0.05  (n_s=1345, n_u=7103): d(median sSFR_fib)=+0.1570 [+0.1325,+0.1871]
+  [suppression/comparison/all] z-slice z0.02-0.06 (n_s=1748, n_u=10219): d(median sSFR_fib)=+0.1434 [+0.1211,+0.1649]
+  [suppression/comparison/all] z-slice z0.06-0.1  (n_s=1152, n_u=12652): d(median sSFR_fib)=+0.1040 [+0.0689,+0.1333]
+  [suppression/comparison/all] z-slice z0.1-0.15  (n_s=207, n_u=4843): d(median sSFR_fib)=-0.1714 [-0.2284,-0.1116]
+  [suppression/comparison/all] mass+bulge cells @ z<0.05 (6 cells): within-cell d(median sSFR_fib)=+0.1889 [+0.1483,+0.2273]
+  [suppression/comparison/all] band 9.5-10.5 @ z<0.05, L&Z statistic (MEAN): d=+0.0104 [-0.0121,+0.0396]
+      mass 9.5-10.0 @ z<0.05 median: d=+0.3017 [+0.2787,+0.3284]  (n_s=467, n_u=3365)
+      mass 9.5-10.0 @ z<0.05 mean  : d=+0.2254 [+0.1981,+0.2547]  (n_s=467, n_u=3365)
+      mass 10.0-10.5 @ z<0.05 median: d=-0.0517 [-0.1166,-0.0003]  (n_s=878, n_u=3738)
+      mass 10.0-10.5 @ z<0.05 mean  : d=-0.0556 [-0.0904,-0.0187]  (n_s=878, n_u=3738)
+      decomposition nonquenched @ z<0.05 (median): d=+0.3148 [+0.2878,+0.3299]  (n_s=1115, n_u=6671)
+      decomposition Q_only   @ z<0.05 (median): d=-0.2480 [-0.2992,-0.2055]  (n_s=230, n_u=432)
+      quenched fraction in band @ z<0.05: strong=0.171  unbarred=0.061  (the composition driving mean-vs-median)
+  [suppression/comparison/agn_clean] mass-only (n_s=2034, n_u=25462): d(median sSFR_fib)=+0.3401 [+0.3285,+0.3511]
+  [suppression/comparison/agn_clean] mass+bulge cells (15 cells, band 9.5-10.5): within-cell d(median sSFR_fib)=+0.2883 [+0.2625,+0.3088]
+  [suppression/comparison/agn_clean] z-slice LZ_z<0.05  (n_s=822, n_u=6056): d(median sSFR_fib)=+0.4158 [+0.3985,+0.4332]
+  [suppression/comparison/agn_clean] z-slice z0.02-0.06 (n_s=1087, n_u=8923): d(median sSFR_fib)=+0.4127 [+0.3972,+0.4248]
+  [suppression/comparison/agn_clean] z-slice z0.06-0.1  (n_s=813, n_u=11959): d(median sSFR_fib)=+0.3406 [+0.3246,+0.3583]
+  [suppression/comparison/agn_clean] z-slice z0.1-0.15  (n_s=134, n_u=4580): d(median sSFR_fib)=-0.0637 [-0.1037,+0.0329]
+  [suppression/comparison/agn_clean] mass+bulge cells @ z<0.05 (6 cells): within-cell d(median sSFR_fib)=+0.3913 [+0.3525,+0.4146]
+  [suppression/comparison/agn_clean] band 9.5-10.5 @ z<0.05, L&Z statistic (MEAN): d=+0.3436 [+0.3226,+0.3647]
+      mass 9.5-10.0 @ z<0.05 median: d=+0.3351 [+0.3188,+0.3626]  (n_s=413, n_u=3229)
+      mass 9.5-10.0 @ z<0.05 mean  : d=+0.3251 [+0.3046,+0.3446]  (n_s=413, n_u=3229)
+      mass 10.0-10.5 @ z<0.05 median: d=+0.5350 [+0.4858,+0.5847]  (n_s=409, n_u=2827)
+      mass 10.0-10.5 @ z<0.05 mean  : d=+0.3655 [+0.3252,+0.4067]  (n_s=409, n_u=2827)
+      decomposition nonquenched @ z<0.05 (median): d=+0.4249 [+0.4056,+0.4416]  (n_s=785, n_u=5896)
+      decomposition Q_only   @ z<0.05 (median): d=-0.8753 [-0.9508,-0.8008]  (n_s=37, n_u=160)
+      quenched fraction in band @ z<0.05: strong=0.045  unbarred=0.026  (the composition driving mean-vs-median)
+  [suppression/conventional/all] mass-only (n_s=3122, n_u=27741): d(median sSFR_fib)=+0.0597 [+0.0425,+0.0726]
+  [suppression/conventional/all] mass+bulge cells (15 cells, band 9.5-10.5): within-cell d(median sSFR_fib)=+0.0950 [+0.0722,+0.1073]
+  [suppression/conventional/all] z-slice LZ_z<0.05  (n_s=1356, n_u=7125): d(median sSFR_fib)=+0.1551 [+0.1316,+0.1832]
+  [suppression/conventional/all] z-slice z0.02-0.06 (n_s=1761, n_u=10244): d(median sSFR_fib)=+0.1358 [+0.1199,+0.1624]
+  [suppression/conventional/all] z-slice z0.06-0.1  (n_s=1154, n_u=12654): d(median sSFR_fib)=+0.1062 [+0.0687,+0.1392]
+  [suppression/conventional/all] z-slice z0.1-0.15  (n_s=207, n_u=4843): d(median sSFR_fib)=-0.1714 [-0.2216,-0.1138]
+  [suppression/conventional/all] mass+bulge cells @ z<0.05 (6 cells): within-cell d(median sSFR_fib)=+0.1840 [+0.1444,+0.2183]
+  [suppression/conventional/all] band 9.5-10.5 @ z<0.05, L&Z statistic (MEAN): d=+0.0046 [-0.0201,+0.0308]
+      mass 9.5-10.0 @ z<0.05 median: d=+0.3014 [+0.2780,+0.3262]  (n_s=469, n_u=3374)
+      mass 9.5-10.0 @ z<0.05 mean  : d=+0.2221 [+0.1941,+0.2485]  (n_s=469, n_u=3374)
+      mass 10.0-10.5 @ z<0.05 median: d=-0.0790 [-0.1231,-0.0044]  (n_s=887, n_u=3751)
+      mass 10.0-10.5 @ z<0.05 mean  : d=-0.0614 [-0.0950,-0.0266]  (n_s=887, n_u=3751)
+      decomposition nonquenched @ z<0.05 (median): d=+0.3146 [+0.2884,+0.3311]  (n_s=1120, n_u=6693)
+      decomposition Q_only   @ z<0.05 (median): d=-0.2457 [-0.2967,-0.2002]  (n_s=236, n_u=432)
+      quenched fraction in band @ z<0.05: strong=0.174  unbarred=0.061  (the composition driving mean-vs-median)
+  [suppression/conventional/agn_clean] mass-only (n_s=2041, n_u=25484): d(median sSFR_fib)=+0.3398 [+0.3288,+0.3518]
+  [suppression/conventional/agn_clean] mass+bulge cells (15 cells, band 9.5-10.5): within-cell d(median sSFR_fib)=+0.2883 [+0.2617,+0.3085]
+  [suppression/conventional/agn_clean] z-slice LZ_z<0.05  (n_s=826, n_u=6073): d(median sSFR_fib)=+0.4149 [+0.3965,+0.4339]
+  [suppression/conventional/agn_clean] z-slice z0.02-0.06 (n_s=1092, n_u=8943): d(median sSFR_fib)=+0.4113 [+0.3949,+0.4246]
+  [suppression/conventional/agn_clean] z-slice z0.06-0.1  (n_s=815, n_u=11961): d(median sSFR_fib)=+0.3409 [+0.3240,+0.3593]
+  [suppression/conventional/agn_clean] z-slice z0.1-0.15  (n_s=134, n_u=4580): d(median sSFR_fib)=-0.0637 [-0.1061,+0.0418]
+  [suppression/conventional/agn_clean] mass+bulge cells @ z<0.05 (6 cells): within-cell d(median sSFR_fib)=+0.3934 [+0.3541,+0.4131]
+  [suppression/conventional/agn_clean] band 9.5-10.5 @ z<0.05, L&Z statistic (MEAN): d=+0.3412 [+0.3209,+0.3650]
+      mass 9.5-10.0 @ z<0.05 median: d=+0.3341 [+0.3176,+0.3621]  (n_s=415, n_u=3238)
+      mass 9.5-10.0 @ z<0.05 mean  : d=+0.3209 [+0.2992,+0.3425]  (n_s=415, n_u=3238)
+      mass 10.0-10.5 @ z<0.05 median: d=+0.5353 [+0.4805,+0.5839]  (n_s=411, n_u=2835)
+      mass 10.0-10.5 @ z<0.05 mean  : d=+0.3651 [+0.3258,+0.4031]  (n_s=411, n_u=2835)
+      decomposition nonquenched @ z<0.05 (median): d=+0.4250 [+0.4052,+0.4393]  (n_s=788, n_u=5913)
+      decomposition Q_only   @ z<0.05 (median): d=-0.8700 [-0.9420,-0.7971]  (n_s=38, n_u=160)
+      quenched fraction in band @ z<0.05: strong=0.046  unbarred=0.026  (the composition driving mean-vs-median)
+  [enhancement/comparison/all] ssfr_fib (n_s=483, n_u=2470): d(median)=+0.1818 [+0.1550,+0.2045]
+  [enhancement/comparison/all] sfr_fib (n_s=483, n_u=2470): d(median)=+0.0981 [+0.0629,+0.1213]
+      bulge_prominence median  strong=1.089  unbarred=1.272  (2D control not possible at this N)
+  [enhancement/comparison/agn_clean] ssfr_fib (n_s=469, n_u=2430): d(median)=+0.1921 [+0.1643,+0.2087]
+  [enhancement/comparison/agn_clean] sfr_fib (n_s=469, n_u=2430): d(median)=+0.1076 [+0.0765,+0.1282]
+      bulge_prominence median  strong=1.089  unbarred=1.272  (2D control not possible at this N)
+  [enhancement/conventional/all] ssfr_fib (n_s=488, n_u=2474): d(median)=+0.1825 [+0.1577,+0.2050]
+  [enhancement/conventional/all] sfr_fib (n_s=488, n_u=2474): d(median)=+0.1058 [+0.0674,+0.1248]
+      bulge_prominence median  strong=1.088  unbarred=1.272  (2D control not possible at this N)
+  [enhancement/conventional/agn_clean] ssfr_fib (n_s=474, n_u=2434): d(median)=+0.1937 [+0.1670,+0.2091]
+  [enhancement/conventional/agn_clean] sfr_fib (n_s=474, n_u=2434): d(median)=+0.1123 [+0.0840,+0.1310]
+      bulge_prominence median  strong=1.088  unbarred=1.273  (2D control not possible at this N)
+    wrote 05d_fibre_ssfr.csv
+========================================================================
+METHOD E -- BPT composition per bar class and within-class contrasts
+========================================================================
+  strong    n= 12074  qfrac=0.286  removed(agn_clean)=0.633  composite=0.234  AGN=0.113  low-S/N LINER=0.183  no-line=0.102  med(sSFR_fib-tot)=-0.0427
+  weak      n= 29324  qfrac=0.147  removed(agn_clean)=0.381  composite=0.129  AGN=0.055  low-S/N LINER=0.129  no-line=0.067  med(sSFR_fib-tot)=-0.1348
+  unbarred  n= 53829  qfrac=0.118  removed(agn_clean)=0.250  composite=0.082  AGN=0.037  low-S/N LINER=0.085  no-line=0.047  med(sSFR_fib-tot)=-0.1902
+  within-BPT AGN contrast (BPT AGN, class 4, only), UNCONTROLLED: qfrac strong=0.404 (n=1368) vs unbarred=0.396 (n=1999)  -> d=+0.009
+  within-BPT AGN contrast (BPT AGN, class 4, only), MASS-CONTROLLED: <Delta qfrac>=+0.0221+/-0.0168 over 6 mass bins -- no difference detected.
+  composite test (BPT class 3 only), UNCONTROLLED: qfrac strong=0.095 (n=2830) vs unbarred=0.097 (n=4388)  -> d=-0.002
+  composite test (BPT class 3 only), MASS-CONTROLLED: <Delta qfrac>=-0.0030+/-0.0071 over 6 mass bins -- no difference detected.
+    wrote 05e_bpt_breakdown.csv
+
+========================================================================
+SUMMARY (numbers computed above)
+========================================================================
+  METHOD B (comparison scheme, full sample, mass+bulge+z stratified)
+    strong bars: RE <Delta q> = +0.0369 +/- 0.0054   FE = +0.0267 +/- 0.0032   (75 cells, Q = 188.1 / 74 dof, I^2 = 0.61)
+                 descriptive sign census: 81% positive; intervals excluding zero +34 / -1
+                 without redshift control: RE +0.0744, FE +0.0353 (30 cells)
+    all bars   : RE <Delta q> = +0.0124 +/- 0.0022   FE = +0.0046 +/- 0.0012   (90 cells, Q = 233.5 / 89 dof, I^2 = 0.62)
+                 descriptive sign census: 77% positive; intervals excluding zero +23 / -3
+                 without redshift control: RE +0.0262, FE +0.0095 (30 cells)
+    weak bars  : RE <Delta q> = +0.0036 +/- 0.0018   FE = +0.0006 +/- 0.0012   (89 cells, Q = 144.4 / 88 dof, I^2 = 0.39)
+                 descriptive sign census: 61% positive; intervals excluding zero +8 / -2
+                 without redshift control: RE +0.0067, FE +0.0010 (30 cells)
+    Errors are nominal and conditional on the selection, bins and
+    statistical model; they exclude selection and measurement systematics.
+    The sign census is descriptive, not an independent significance test.
+  BPT 1-2 (agn_clean) tier, Method B redshift-stratified:
+    all        : RE full = +0.0124+/-0.0022  ->  BPT 1-2 = +0.0007+/-0.0013
+    strong_only: RE full = +0.0369+/-0.0054  ->  BPT 1-2 = -0.0007+/-0.0033
+    This tier changes the compared population (Method E); it is not
+    evidence for or against AGN-mediated quenching.
+  METHOD C (comparison, all discs, main sample), corr(bar score, dSFR):
+    | none             : -0.1595 [-0.1626, -0.1565]
+    | mass             : -0.1012 [-0.1043, -0.0980]
+    | mass+bulge       : -0.0925 [-0.0957, -0.0893]
+    | mass+bulge+z     : -0.0571 [-0.0603, -0.0539]
+    The residual rank association is sensitive to adding redshift.
+  METHOD E (BPT composition, comparison scheme):
+    BPT 1-2 selection removes 63% of strong-barred and 25% of unbarred discs.
+    Removed strong bars: composite 23%, AGN 11%, low-S/N LINER 18%, unclassifiable 10% (unbarred: 8% / 4% / 8% / 5%).
+    Mass-controlled contrast within BPT class 4: +0.0221 +/- 0.0168; within class 3: -0.0030 +/- 0.0071.
+    The class-4 contrast is compatible with both zero and the overall
+    excess; these comparisons neither establish nor exclude AGN mediation.
+    Median log sSFR_fib - log sSFR_tot: strong -0.043, unbarred -0.190 dex (aperture- and
+    estimator-dependent; gas inflow and depletion were not measured).
+  METHOD D: the low-mass (9.0-9.5) fibre contrast has the same sign as the
+    L&Z low-mass enhancement; the full 9.5-10.5 mean contrast at z<0.05 does
+    not reproduce their approximately -0.2 dex suppression. Their mass-and-
+    colour matching, apertures and SFR estimators differ, so these
+    within-sample statistics do not identify the cause of the difference.
+
+  Permutation importance measures predictive reliance, depends on correlated features, and does not bound physical causation. Method A omits redshift and is descriptive context. Method B stratifies mass, bulge and redshift; its nominal errors exclude selection and measurement systematics. Method C includes redshift sensitivity.
+
+  wrote results/05a_rf_importance_*.csv, 05b_controlled_binning_*.csv, 05c_partial_correlation.csv, 05d_fibre_ssfr.csv, 05e_bpt_breakdown.csv

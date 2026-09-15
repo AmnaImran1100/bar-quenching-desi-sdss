@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+type: software
+title: "bar-quenching-desi-sdss: a controlled comparison of bar strength and quenching"
+abstract: >-
+  Analysis pipeline, derived catalogue, figures and per-cell result tables for a
+  comparison of bar class and star-formation quenching within bins of
+  stellar mass, bulge prominence and redshift,
+  using Galaxy Zoo DESI deep-learning morphology cross-matched to SDSS MPA-JHU
+  spectroscopy.
+authors:
+  - family-names: "Nagi"
+    given-names: "Amna Imran"
+    orcid: "https://orcid.org/0009-0007-3742-7883"
+version: 1.0.0
+# Add the issued Zenodo DOI and actual release date after deposit.
+repository-code: "https://github.com/AmnaImran1100/bar-quenching-desi-sdss"
+url: "https://github.com/AmnaImran1100/bar-quenching-desi-sdss"
+license: MIT
+license-url: "https://github.com/AmnaImran1100/bar-quenching-desi-sdss/blob/main/LICENSE"
+keywords:
+  - astronomy
+  - galaxy evolution
+  - stellar bars
+  - star formation quenching
+  - Galaxy Zoo
+  - SDSS
+  - MPA-JHU
+  - random forest
+references:
+  - type: article
+    title: "Galaxy Zoo DESI: Detailed morphology measurements for 8.7M galaxies in the DESI Legacy Imaging Surveys"
+    authors:
+      - family-names: "Walmsley"
+        given-names: "Mike"
+      - family-names: "Géron"
+        given-names: "Tobias"
+      - family-names: "Kruk"
+        given-names: "Sandor"
+    journal: "Monthly Notices of the Royal Astronomical Society"
+    volume: 526
+    start: 4768
+    year: 2023
+    doi: 10.1093/mnras/stad2919
+    notes: "Author list truncated to the first three; see the article for the full list."
+  - type: article
+    title: "The physical properties of star-forming galaxies in the low-redshift Universe"
+    authors:
+      - family-names: "Brinchmann"
+        given-names: "Jarle"
+      - family-names: "Charlot"
+        given-names: "Stephane"
+      - family-names: "White"
+        given-names: "Simon D. M."
+    journal: "Monthly Notices of the Royal Astronomical Society"
+    volume: 351
+    start: 1151
+    year: 2004
+    doi: 10.1111/j.1365-2966.2004.07881.x
+    notes: "Author list truncated to the first three; see the article for the full list."

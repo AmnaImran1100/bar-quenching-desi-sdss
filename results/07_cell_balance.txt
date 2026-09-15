@@ -1,0 +1,22 @@
+07_cell_balance_check.py: descriptive within-cell covariate balance
+Offsets compare medians within each valid Method-B cell.
+Bins have different physical edges in different redshift slices.
+
+========================================================================
+WITHIN-CELL BALANCE: comparison scheme, strong_only, z-controlled
+========================================================================
+  valid cells: 75
+  d_mass   barred-unbarred median offset: mean=+0.0013  median=+0.0046  [p5,p95]=[-0.0318,+0.0391] dex
+  d_bulge  barred-unbarred median offset: mean=-0.0069  median=+0.0095  [p5,p95]=[-0.0879,+0.0252] score
+  d_z      barred-unbarred median offset: mean=-0.0036  median=-0.0029  [p5,p95]=[-0.0086,+0.0008] z
+  These offsets are descriptive, not a bias correction or a bound.
+  Distributional differences and residual confounding remain possible.
+========================================================================
+WITHIN-CELL BALANCE: comparison scheme, all, z-controlled
+========================================================================
+  valid cells: 90
+  d_mass   barred-unbarred median offset: mean=-0.0010  median=+0.0003  [p5,p95]=[-0.0295,+0.0293] dex
+  d_bulge  barred-unbarred median offset: mean=-0.0083  median=+0.0042  [p5,p95]=[-0.0741,+0.0159] score
+  d_z      barred-unbarred median offset: mean=-0.0008  median=-0.0008  [p5,p95]=[-0.0034,+0.0019] z
+  These offsets are descriptive, not a bias correction or a bound.
+  Distributional differences and residual confounding remain possible.

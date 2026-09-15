@@ -1,0 +1,38 @@
+06_result_figures.py: figures from the stage-05 CSVs
+  fiducial scheme = comparison
+
+========================================================================
+06a  RF feature importance (perm + Gini, both tiers)
+========================================================================
+  saved -> 06a_feature_importance.png + 06a_feature_importance.pdf
+  comparison:main: top feature = log_mass (perm 0.193); bar_strength perm = 0.009 vs random-control p95 = 0.000 -> above the noise floor.
+  comparison:sigma: top feature = sigma_c (perm 0.096); bar_strength perm = 0.013 vs random-control p95 = 0.000 -> above the noise floor.
+========================================================================
+06b  controlled (mass, bulge) binning
+========================================================================
+  saved -> 06b_controlled_binning.png + 06b_controlled_binning.pdf
+  grid = z-uncontrolled projection; annotated fiducial is z-controlled.
+    all        : z-controlled FE <dq>=+0.0046+/-0.0012  RE <dq>=+0.0124+/-0.0022 (I2=0.619)  (z-uncontrolled +0.0095)
+    strong_only: z-controlled FE <dq>=+0.0267+/-0.0032  RE <dq>=+0.0369+/-0.0054 (I2=0.607)  (z-uncontrolled +0.0353)
+========================================================================
+06c  partial correlation corr(bar, dSFR) vs controls
+========================================================================
+  main/strong+weak: none=-0.15949, mass=-0.10122, mass+bulge=-0.09251, mass+bulge+z=-0.05714
+  main/strong_only: none=-0.14103, mass=-0.07519, mass+bulge=-0.06772, mass+bulge+z=-0.01538
+  sigma/strong+weak: none=-0.14321, mass=-0.11904, mass+bulge=-0.10346, mass+bulge+z=-0.07752, mass+bulge+sigma+z=-0.07736
+  sigma/strong_only: none=-0.11819, mass=-0.10129, mass+bulge=-0.08672, mass+bulge+z=-0.04256, mass+bulge+sigma+z=-0.04070
+  saved -> 06c_partial_correlation.png + 06c_partial_correlation.pdf
+========================================================================
+06d  central fibre sSFR (statistics and within-sample composition)
+========================================================================
+  saved -> 06d_fibre_ssfr.png + 06d_fibre_ssfr.pdf
+  same-statistic (MEAN), different matching band contrast @ z<0.05: +0.010 [-0.012,+0.040]; 10.0-10.5 half (mean) -0.056; non-quenched +0.315, Q-only -0.248; in-band qfrac 0.171 vs 0.061 (2.8x); low-z sSFR enhancement +0.18 dex. This sample does not reproduce the L&Z full-band suppression.
+========================================================================
+06e  BPT composition / selection effect
+========================================================================
+  saved -> 06e_bpt_selection.png + 06e_bpt_selection.pdf
+  removed by agn_clean: strong 63% vs unbarred 25%.
+  AGN-only (BPT 4) qfrac: strong 0.404 (n=1368) vs unbarred 0.396 (n=1999); mass-controlled +0.0221+/-0.0168 over 6 bins (not detected).
+  composite-only (BPT 3) qfrac: strong 0.095 vs unbarred 0.097; mass-controlled -0.0030+/-0.0071 over 6 bins.
+
+  wrote figures/06a..06e (PNG + PDF)

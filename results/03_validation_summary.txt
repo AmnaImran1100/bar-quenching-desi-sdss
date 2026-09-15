@@ -1,0 +1,69 @@
+03_validation_figures.py: sample validation
+
+merged catalog: 504,138 rows x 52 cols
+main sample (logM > 9.5): 476,396
+
+========================================================================
+03a  sSFR bimodality  [gate]
+========================================================================
+  main-sample galaxies with finite log sSFR .....      476,396
+  GMM component 1 (quenched):  mu=-11.968  sigma=0.415  w=0.489
+  GMM component 2 (star-forming): mu=-10.214  sigma=0.444  w=0.511
+  peak separation ...... 1.755 dex   (require > 0.80)
+  minority weight ...... 0.489       (require > 0.15)
+  GATE: PASS: two populations present
+  saved -> 03a_ssfr_bimodality.png + 03a_ssfr_bimodality.pdf
+========================================================================
+03b  star-forming main sequence + fitted ridge
+========================================================================
+  recovered ridge:  log SFR_MS = 0.646 * logM + (-6.336)
+  Renzini & Peng 2015 reference:  0.760 * logM + (-7.640)
+  saved -> 03b_sfms.png + 03b_sfms.pdf
+========================================================================
+03c  DeltaSFR + sSFR distributions with cut lines
+========================================================================
+  quenched fraction (DeltaSFR < -1.1) ....... 0.462
+  green-valley fraction (-1.1 to -0.5) . 0.122
+  saved -> 03c_dsfr_distribution.png + 03c_dsfr_distribution.pdf
+========================================================================
+03d  bar fraction vs stellar mass  (comparison scheme)
+========================================================================
+  classified disc galaxies .......................      102,004
+  saved -> 03d_barfraction_mass.png + 03d_barfraction_mass.pdf
+    logM   N     f_strong  f_weak   f_total
+    9.10    1979    0.097    0.402    0.499
+    9.30    2952    0.079    0.442    0.521
+    9.50    4039    0.081    0.421    0.501
+    9.70    5405    0.062    0.382    0.444
+    9.90    7000    0.051    0.317    0.368
+    10.10    9212    0.055    0.268    0.322
+    10.30   12649    0.075    0.270    0.345
+    10.50   15700    0.115    0.291    0.406
+    10.70   17008    0.159    0.310    0.469
+    10.90   14427    0.204    0.328    0.531
+    11.10    8404    0.209    0.327    0.536
+    11.30    2701    0.177    0.307    0.484
+========================================================================
+03e  cross-match separation
+========================================================================
+  matched galaxies ...............................      504,138
+  median separation .............................. 0.080 arcsec
+  saved -> 03e_match_separation.png + 03e_match_separation.pdf
+========================================================================
+03f  empirical mass-redshift lower envelope
+========================================================================
+  5th-pct logM* stays within 0.10 dex of the 9.5 floor out to z ~ 0.065, then climbs
+     (5th-pct logM* = 9.55 at z=0.025 -> 10.47 at z=0.145)
+  This lower envelope describes the selected sample; it does not
+  measure a completeness probability. Redshift stratification does
+  not recover missing low-mass galaxies or remove all selection effects.
+  saved -> 03f_mass_completeness.png + 03f_mass_completeness.pdf
+
+========================================================================
+VALIDATION VERDICT
+========================================================================
+  sSFR bimodality: PASS (a distinct quenched population is present).
+  Proceed to steps 04 and 05.
+
+SAVED summary -> results/03_validation_summary.txt
+========================================================================

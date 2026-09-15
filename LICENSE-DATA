@@ -1,0 +1,79 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Amna Imran Nagi
+
+SCOPE
+-----
+This licence applies to the DERIVED DATA, FIGURES AND RESULTS in this
+repository, namely:
+
+    data/merged_catalog.parquet
+    figures/
+    results/
+
+The CODE in this repository (src/, config.py) is licensed separately under
+the MIT License; see the LICENSE file.
+
+WHAT IS LICENSED HERE
+---------------------
+What is licensed under CC BY 4.0 is the compilation and the derived work:
+the specific cross-match between Galaxy Zoo DESI and SDSS MPA-JHU, the
+derived columns (bulge prominence, bar strength, Delta SFR, quenched flags,
+sample-membership flags), the filtering and sample construction, the
+per-cell result tables, and the figures.
+
+WHAT IS NOT LICENSED HERE
+-------------------------
+This licence does NOT relicense the underlying raw measurements. Those
+originate from:
+
+  * Galaxy Zoo DESI (Walmsley et al. 2023, MNRAS, 526, 4768),
+    https://doi.org/10.5281/zenodo.7786416
+  * the SDSS MPA-JHU value-added catalogue
+    (Kauffmann et al. 2003; Brinchmann et al. 2004; Salim et al. 2007;
+    SDSS DR8, Aihara et al. 2011)
+
+each of which carries its own terms and citation expectations. Anyone
+reusing data/merged_catalog.parquet should credit this repository AND both
+parent surveys. In particular, the SDSS asks that data from its public archive
+not be used for commercial purposes without approval from the Astrophysical
+Research Consortium, and requests its standard acknowledgement in
+publications; those requests apply to the SDSS-derived columns regardless of
+the licence below.
+
+THE LICENCE
+-----------
+You are free to:
+
+  Share  - copy and redistribute the material in any medium or format
+  Adapt  - remix, transform, and build upon the material for any purpose,
+           even commercially
+
+under the following term:
+
+  Attribution - You must give appropriate credit, provide a link to the
+  licence, and indicate if changes were made. You may do so in any
+  reasonable manner, but not in any way that suggests the licensor endorses
+  you or your use.
+
+No additional restrictions - You may not apply legal terms or technological
+measures that legally restrict others from doing anything the licence
+permits.
+
+
+
+The full legal code of CC BY 4.0 is at:
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+and the human-readable summary at:
+
+    https://creativecommons.org/licenses/by/4.0/
+
+The full legal code governs; the summary above is not a substitute for it.
+
+SUGGESTED CITATION
+------------------
+Nagi, A. I. (2026). bar-quenching-desi-sdss (v1.0.0) [Software and data].
+https://github.com/AmnaImran1100/bar-quenching-desi-sdss
+The Zenodo DOI will be added after the release is deposited.

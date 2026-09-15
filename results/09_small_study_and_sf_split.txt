@@ -1,0 +1,65 @@
+09_small_study_and_sf_split.py: provenance for two more number sets
+
+========================================================================
+(A) SMALL-STUDY DIAGNOSTIC  (fiducial z-controlled strong-bar cells)
+========================================================================
+    source table ......................... 05b_controlled_binning_zsliced_comparison_strong_only.csv
+    valid fiducial cells ................. 75
+
+    Egger precision-association diagnostic (nominal Student-t test)
+      model: Delta q / se = b + a / se, ordinary least squares
+      standardized intercept b = +2.606601
+      SE(b) = 0.456368; a = -0.040830
+      t = +5.71163 on 73 dof; p = 2.269495e-07
+
+    Rank correlations of the per-cell excess
+      Spearman(se, Delta q) ......... rho = +0.510, p = 2.920e-06
+      Spearman(n_barred, Delta q) ... rho = +0.185, p = 0.112
+
+    Random-effects mean split at the median barred count
+      median n_barred per cell .......... 105.0
+      smaller half (n_barred <  median) . 37 cells, <Delta q>_RE = +0.0230 +/- 0.0064
+      larger  half (n_barred >= median) . 38 cells, <Delta q>_RE = +0.0472 +/- 0.0082
+
+    The positive larger-cell estimate is a descriptive sensitivity check.
+    Binomial effects and SEs are coupled; these are not published studies.
+    Neither this diagnostic nor the count correlation establishes the
+    presence or absence of bias, or bounds residual confounding.
+
+    PRECISION DIAGNOSTIC:
+      Egger standardized-intercept nominal p = 2.269495e-07
+      Spearman(se, Delta q) rho = +0.51, p = 2.9e-06
+      Spearman(n_barred, Delta q) rho = +0.18, p = 0.11
+      smaller half +0.0230 +/- 0.0064; larger half +0.0472 +/- 0.0082
+
+========================================================================
+(B) STRICT STAR-FORMING SPLIT  (fibre decomposition, Section 5.2)
+========================================================================
+    band: 9.5 <= log M* < 10.5, 0.02 <= z < 0.05, comparison scheme
+
+    Population shares by bar class
+      strong   : N =  1345   quenched   230   non-quenched  1115  (green valley  229 = 20.5%, strictly SF   886)
+      unbarred : N =  7103   quenched   432   non-quenched  6671  (green valley  810 = 12.1%, strictly SF  5861)
+
+    Mean decomposition: composition -0.129634, within-quenched -0.047224, within-non-quenched +0.187260
+    Sum = observed mean contrast +0.010402 dex
+    Quenched-fraction ratio strong/unbarred = 2.811665
+    This decomposition describes this sample, not the cause of another survey's result.
+
+    Delta median log sSFR_fib (strong - unbarred), 16/84 bootstrap band
+      non-quenched members (from 05d) ........... +0.3148 [+0.2878, +0.3299]
+      strictly star-forming members ................ +0.3887 [+0.3663, +0.4066]
+      quenched members (from 05d) ................ -0.2480 [-0.2992, -0.2055]
+
+    Reading: the quenched / non-quenched split is the one used in the
+    analysis, because the composition argument needs an EXHAUSTIVE two-way
+    partition that reconstructs the band mean. The green valley therefore
+    sits inside the non-quenched group, and it is a larger share of the
+    strong-barred members than of the unbarred ones, so it DILUTES the
+    central enhancement rather than creating it: removing it raises the
+    contrast from +0.315 to +0.389 dex.
+
+    POPULATION COMPARISON:
+      non-quenched contrast +0.315 [+0.288, +0.330]
+      strictly star-forming contrast +0.39 dex
+

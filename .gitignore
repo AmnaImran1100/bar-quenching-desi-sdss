@@ -1,0 +1,21 @@
+# Large upstream catalogues (each over GitHub's 100 MB per-file limit).
+# Download them from the sources listed in README.md and place them in data/raw/.
+data/raw/external_catalog.parquet
+data/raw/gz_desi_deep_learning_catalog_friendly.parquet
+data/raw/galSpecInfo-dr8.fits
+data/raw/galSpecExtra-dr8.fits
+
+# NOTE: data/merged_catalog.parquet (~76 MB) is tracked on purpose: it is the
+# analysis-ready table every result derives from, so shipping it means the whole
+# analysis can be re-run without the ~3 GB of raw downloads above.
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Keep only analysis directories in the public repository.
+/*/
+!/src/
+!/data/
+!/figures/
+!/results/

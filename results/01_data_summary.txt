@@ -1,0 +1,89 @@
+01_load_data.py: raw catalogue verification
+
+>> Loading Galaxy Zoo DESI morphology (science columns only)...
+   dr8_id duplicates: 0 (OK, unique)
+========================================================================
+GALAXY ZOO DESI (friendly, science columns)
+========================================================================
+rows: 8,689,370    cols: 15
+
+  dr8_id                                       str/obj                                    n_unique=8689370  e.g. ['100000_1081', '100000_1401', '100000_1483', '100000_1509']
+  ra                                           [2.953e-05, 169.7 (med), 360]              NaN= 0.00%
+  dec                                          [-65.9, 11.52 (med), 84.78]                NaN= 0.00%
+  smooth-or-featured_featured-or-disk_fraction [0.01837, 0.1083 (med), 0.9551]            NaN= 0.00%
+  disk-edge-on_yes_fraction                    [0.01325, 0.06005 (med), 0.9888]           NaN=89.50%
+  disk-edge-on_no_fraction                     [0.01119, 0.94 (med), 0.9868]              NaN=89.50%
+  bar_strong_fraction                          [0.01488, 0.1025 (med), 0.8959]            NaN=93.49%
+  bar_weak_fraction                            [0.02545, 0.3186 (med), 0.6597]            NaN=93.49%
+  bar_no_fraction                              [0.02917, 0.5463 (med), 0.9578]            NaN=93.49%
+  bulge-size_none_fraction                     [0.006605, 0.03032 (med), 0.8917]          NaN=93.49%
+  bulge-size_small_fraction                    [0.017, 0.4149 (med), 0.9176]              NaN=93.49%
+  bulge-size_moderate_fraction                 [0.02487, 0.4039 (med), 0.8273]            NaN=93.49%
+  bulge-size_large_fraction                    [0.008042, 0.03642 (med), 0.6231]          NaN=93.49%
+  bulge-size_dominant_fraction                 [0.00625, 0.01152 (med), 0.5212]           NaN=93.49%
+  has-spiral-arms_yes_fraction                 [0.02962, 0.8805 (med), 0.9899]            NaN=93.49%
+
+>> Checking external (redshift pre-filter) catalog...
+external catalog present: data/raw/external_catalog.parquet
+  columns (132): ['dr8_id', 'iauname', 'png_loc', 'ra', 'dec', 'est_petro_th50', 'brickid', 'objid', 'mag_r_desi', 'mag_g_desi', 'mag_z_desi', 'petro_theta', 'petro_th50', 'petro_th90', 'petro_phi50', 'petro_phi90', 'petro_ba50', 'petro_ba90', 'elpetro_ba', 'elpetro_phi', 'elpetro_flux_r', 'elpetro_theta_r', 'elpetro_mass', 'sersic_n', 'sersic_ba', 'sersic_phi', 'elpetro_absmag_f', 'sersic_nmgy_f', 'elpetro_absmag_n', 'sersic_nmgy_n', 'elpetro_absmag_u', 'sersic_nmgy_u', 'elpetro_absmag_g', 'sersic_nmgy_g', 'elpetro_absmag_r', 'sersic_nmgy_r', 'elpetro_absmag_i', 'sersic_nmgy_i', 'elpetro_absmag_z', 'sersic_nmgy_z', 'redshift_nsa', 'mag_f', 'mag_n', 'mag_u', 'mag_g', 'mag_r', 'mag_i', 'mag_z', 'u_minus_r', 'elpetro_mass_log', 'dr7objid_ossy', 'ra_ossy', 'dec_ossy', 'redshift_ossy', 'log_l_oiii', 'fwhm', 'e_fwhm', 'equiv_width', 'log_l_ha', 'log_m_bh', 'upper_e_log_m_bh', 'lower_e_log_m_bh', 'log_bolometric_l', 'ra_alf', 'dec_alf', 'W50', 'sigW', 'W20', 'HIflux', 'sigflux', 'SNR', 'RMS', 'Dist', 'sigDist', 'logMH', 'siglogMH', 'ra_jhu', 'dec_jhu', 'fibre_sfr_avg', 'fibre_sfr_entropy', 'fibre_sfr_median', 'fibre_sfr_mode', 'fibre_sfr_p16', 'fibre_sfr_p2p5', 'fibre_sfr_p84', 'fibre_sfr_p97p5', 'fibre_ssfr_avg', 'fibre_ssfr_entropy', 'fibre_ssfr_median', 'fibre_ssfr_mode', 'fibre_ssfr_p16', 'fibre_ssfr_p2p5', 'fibre_ssfr_p84', 'fibre_ssfr_p97p5', 'total_ssfr_avg', 'total_ssfr_entropy', 'total_ssfr_flag', 'total_ssfr_median', 'total_ssfr_mode', 'total_ssfr_p16', 'total_ssfr_p2p5', 'total_ssfr_p84', 'total_ssfr_p97p5', 'total_sfr_avg', 'total_sfr_entropy', 'total_sfr_flag', 'total_sfr_median', 'total_sfr_mode', 'total_sfr_p16', 'total_sfr_p2p5', 'total_sfr_p84', 'total_sfr_p97p5', 'photoz_id', 'ra_photoz', 'dec_photoz', 'photo_z', 'photo_zerr', 'spec_z', 'mag_abs_g_photoz', 'mag_abs_r_photoz', 'mag_abs_z_photoz', 'mass_inf_photoz', 'mass_med_photoz', 'mass_sup_photoz', 'sfr_inf_photoz', 'sfr_sup_photoz', 'ssfr_inf_photoz', 'ssfr_med_photoz', 'ssfr_sup_photoz', 'sky_separation_arcsec_from_photoz', 'redshift', 'est_petro_th50_kpc']
+  redshift-column candidates: ['photo_z', 'spec_z', 'redshift']
+========================================================================
+EXTERNAL CATALOG (pre-filter only)
+========================================================================
+rows: 8,689,370    cols: 4
+
+  dr8_id                                       str/obj                                    n_unique=8689370  e.g. ['100000_1081', '100000_1401', '100000_1483', '100000_1509']
+  photo_z                                      [0.001, 0.1739 (med), 0.5]                 NaN= 7.47%
+  spec_z                                       [0.0001144, 0.131 (med), 2.2]              NaN=87.33%
+  redshift                                     [-0.003335, 0.1735 (med), 2.2]             NaN= 7.33%
+
+>> Loading MPA-JHU galSpecExtra + galSpecInfo...
+   row-match verified: SPECOBJID agrees row-for-row (index join safe)
+========================================================================
+MPA-JHU (galSpecExtra x galSpecInfo, row-joined)
+========================================================================
+rows: 1,843,200    cols: 22
+
+  specobjid                                    str/obj                                    n_unique=1472581  e.g. ['299489676975171584', '299489951853078528', '299490226730985472', '299490501608892416']
+  bptclass                                     [-1, 0 (med), 5]                           NaN= 0.00%
+  lgm_tot_p50                                  [0, 10.1 (med), 12.49]                     NaN= 0.00%  (-9999)=26.60%
+  lgm_fib_p50                                  [0, 9.604 (med), 12.45]                    NaN= 0.00%  (-9999)=28.49%
+  sfr_tot_p50                                  [-5, -0.03008 (med), 3.875]                NaN= 0.00%  (-9999)=28.39%
+  sfr_fib_p50                                  [-5, -0.6806 (med), 3.925]                 NaN= 0.00%  (-9999)=29.41%
+  specsfr_tot_p50                              [-14.16, -10.19 (med), 0]                  NaN= 0.00%  (-9999)=29.59%
+  specsfr_fib_p50                              [-14.39, -10.22 (med), 0]                  NaN= 0.00%  (-9999)=29.50%
+  ra                                           [-9999, 157.5 (med), 360.8]                NaN= 0.00%
+  dec                                          [-9999, 11.63 (med), 84.85]                NaN= 0.00%
+  z                                            [-9999, 0.03413 (med), 0.7]                NaN= 0.00%
+  z_err                                        [-6, 1.437e-05 (med), 2.261e+04]           NaN= 0.00%
+  z_warning                                    [0, 0 (med), 198]                          NaN= 0.00%
+  v_disp                                       [0, 72.76 (med), 850]                      NaN= 0.00%
+  v_disp_err                                   [-50, 3.478 (med), 2263]                   NaN= 0.00%
+  sn_median                                    [-15.98, 10.22 (med), 131.2]               NaN= 0.00%
+  reliable                                     [0, 1 (med), 1]                            NaN= 0.00%
+  spectrotype                                  str/obj                                    n_unique=3  e.g. ['GALAXY', 'QSO', 'STAR']
+  subclass                                     str/obj                                    n_unique=50  e.g. ['BROADLINE', 'STARBURST', 'STARFORMING', 'A0']
+  plateid                                      [-1, 1215 (med), 2974]                     NaN= 0.00%
+  mjd                                          [-1, 5.278e+04 (med), 5.465e+04]           NaN= 0.00%
+  fiberid                                      [-1, 240 (med), 640]                       NaN= 0.00%
+
+>> Distributions of flags we must verify before the 02 cross-match cuts:
+
+Spectral type (GALAXY vs STAR/QSO; only GALAXY is science)  (column 'spectrotype'):
+          GALAXY :    949,882  (51.53%)
+            STAR :    485,512  (26.34%)
+             nan :    370,619  (20.11%)
+             QSO :     37,187  ( 2.02%)
+
+RELIABLE flag (confirm convention vs MPA-JHU docs before using reliable==1)  (column 'reliable'):
+               1 :    926,068  (50.24%)
+               0 :    917,132  (49.76%)
+
+BPTCLASS (AGN-clean rerun keeps {1,2}: SF / low-S/N SF)  (column 'bptclass'):
+              -1 :    870,214  (47.21%)
+               0 :    370,619  (20.11%)
+               2 :    230,513  (12.51%)
+               1 :    215,224  (11.68%)
+               5 :     77,586  ( 4.21%)
+               3 :     52,006  ( 2.82%)
+               4 :     27,038  ( 1.47%)

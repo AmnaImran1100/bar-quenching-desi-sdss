@@ -1,0 +1,27 @@
+{
+  "inputs": {
+    "files": {
+      "data/merged_catalog.parquet": "4c1853818df58b83c48d9fca255d38441c9e6364508b5226a8c12a41a9aeae88",
+      "config.py": "df0c4c92a845ae53898a09fd720eb208cc7a0501fdeb7de6fb6905ddb2a1f9eb",
+      "src/05_bar_test.py": "fd519766e1aaba6c041d1bba07aa4418b1a53bc5ba0f6d1ba44eb062f15095ba",
+      "src/rf_protocol.py": "78b40c048df1455e334d9ea8c12de47088be8cbb57033d97b53a1dd2044a961c",
+      "src/provenance.py": "e684663f0c27044067c2e08539bf06f2a1866812e1c386faaa62c6b81434ce8f"
+    },
+    "versions": {
+      "python": "3.14.6",
+      "numpy": "2.5.1",
+      "pandas": "3.0.5",
+      "scipy": "1.18.0",
+      "astropy": "8.0.1",
+      "scikit-learn": "1.9.0",
+      "matplotlib": "3.11.1",
+      "pyarrow": "25.0.1",
+      "tqdm": "4.70.0"
+    },
+    "settings": {
+      "scheme": "conventional",
+      "seed": 44
+    }
+  },
+  "output_sha256": "646e7a5648e409ea964976789c3318a1fde5abbfb5797ee705450961275925c4"
+}

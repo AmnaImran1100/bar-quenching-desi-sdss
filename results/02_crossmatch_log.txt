@@ -1,0 +1,112 @@
+02_crossmatch.py -- GZ DESI x MPA-JHU merge
+
+========================================================================
+STEP 1  Load GZ DESI morphology + redshift pre-filter
+========================================================================
+  GZ DESI rows loaded ............................    8,689,370
+  External-redshift pre-filter disabled: match the full catalogue.
+
+========================================================================
+STEP 2  Load MPA-JHU, keep GALAXY spectra only
+========================================================================
+  MPA-JHU spectra loaded .........................    1,843,200
+  spectrotype == GALAXY ..........................      949,882
+    (dropped: 893,318 placeholder / STAR / QSO rows)
+  with valid sky coordinates .....................      949,870   (dropped 12 sentinel/invalid ra|dec)
+
+========================================================================
+STEP 3  Sky cross-match  (MPA galaxies -> GZ, r < 1.5")
+========================================================================
+  MPA galaxies with a GZ source < 1.5" ...      837,540  (88.2%)
+    sep < 0.10":    534,725
+    sep < 0.25":    781,164
+    sep < 0.50":    821,577
+    sep < 0.75":    830,911
+    sep < 1.00":    834,629
+    sep < 1.50":    837,540
+  matched rows before dedup ......................      837,540
+  GZ galaxies claimed by >1 spectrum .............       42,785  (max multiplicity 9)
+  unique matched galaxies (kept highest S/N) .....      787,011
+
+========================================================================
+STEP 4  Physical validity cuts + sample-membership flags
+========================================================================
+  valid log SFR=-1 rows retained by validity rule: 2
+  valid total mass                                  734,251
+    + valid SFR & sSFR                              696,897
+    + z_warning==0 & 0.02<z<0.15                    516,449
+    + logM > 9.0  (row-level floor)                 504,138
+  --> rows retained ..............................      504,138  (from 787,011)
+      in_main_sample (logM>9.5) .................      476,396
+      in_lowz_slice (9.0-9.5, z<0.05) ...........       19,883
+
+========================================================================
+STEP 5  Derived morphology: B_prom, B_vol, bar labels
+========================================================================
+  bar classes (comparison):
+        unclassified:    401,899
+            unbarred:     57,222
+                weak:     32,292
+              strong:     12,725
+  bar classes (conventional):
+        unclassified:    401,899
+            unbarred:     57,222
+                weak:     32,292
+              strong:     12,725
+  bulge_prominence: median=1.467, NaN=79.72%
+
+========================================================================
+STEP 6  Selection-scheme membership flags
+========================================================================
+  comparison: passing gate=112,832  with usable bar+bulge votes=102,004  (lost 10,828 to missing votes)
+     in main sample (logM>9.5): 95,227
+          unbarred:   53,829  (56.53%)
+              weak:   29,324  (30.79%)
+            strong:   12,074  (12.68%)
+  conventional: passing gate=117,149  with usable bar+bulge votes=102,239  (lost 14,910 to missing votes)
+     in main sample (logM>9.5): 95,447
+          unbarred:   53,934  (56.51%)
+              weak:   29,378  (30.78%)
+            strong:   12,135  (12.71%)
+
+========================================================================
+STEP 7  Main-sequence fit -> Delta SFR -> quenched labels
+========================================================================
+  star-forming galaxies for the ridge (logsSFR>-10.5, 9.0<logM<10.8): 191,419
+  populated 0.1-dex mass bins used in the fit: 18 (>= 20 star-forming galaxies each)
+  fitted MS ridge:  log SFR_MS = 0.646 * logM + (-6.336)
+  full-precision coefficients: alpha = np.float64(0.6455175233168711), beta = np.float64(-6.335745952226693)
+  Renzini & Peng 2015 reference:            0.760 * logM + (-7.640)
+  mean |fit - R&P| over fitted bins: 0.171 dex
+  quenched fraction (dSFR<-1.1) in main sample: 0.462
+  green-valley fraction in main sample: 0.122
+  quenched fraction (logsSFR<-11.0) main sample: 0.509
+
+========================================================================
+STEP 8  Supplementary-tier flags (sigma-clean, AGN-clean)
+========================================================================
+  sigma-clean (70<sigma<420, positive finite error, S/N>10, reliable): 351,567   (main sample: 349,830)
+  AGN-clean (bptclass in 1,2): 247,670   (main sample: 221,584)
+
+========================================================================
+STEP 9  Fibre-column sentinel guard (Methods D / E)
+========================================================================
+  main:comparison        specsfr_fib_p50    n= 95,227  sentinels=0  non-finite=0  min=-12.992
+  main:comparison        sfr_fib_p50        n= 95,227  sentinels=0  non-finite=0  min=-3.403
+  main:comparison        lgm_fib_p50        n= 95,227  sentinels=0  non-finite=0  min=7.929
+  lowz:comparison        specsfr_fib_p50    n=  5,179  sentinels=0  non-finite=0  min=-11.459
+  lowz:comparison        sfr_fib_p50        n=  5,179  sentinels=0  non-finite=0  min=-3.199
+  lowz:comparison        lgm_fib_p50        n=  5,179  sentinels=0  non-finite=0  min=7.264
+  main:conventional      specsfr_fib_p50    n= 95,447  sentinels=0  non-finite=0  min=-12.992
+  main:conventional      sfr_fib_p50        n= 95,447  sentinels=0  non-finite=0  min=-3.403
+  main:conventional      lgm_fib_p50        n= 95,447  sentinels=0  non-finite=0  min=7.929
+  lowz:conventional      specsfr_fib_p50    n=  5,192  sentinels=0  non-finite=0  min=-11.459
+  lowz:conventional      sfr_fib_p50        n=  5,192  sentinels=0  non-finite=0  min=-3.199
+  lowz:conventional      lgm_fib_p50        n=  5,192  sentinels=0  non-finite=0  min=7.264
+  sentinel fibre values OUTSIDE every analysis frame: 1 (harmless -- never read)
+  GUARD PASSED: no sentinel or non-finite fibre value in any analysis frame.
+
+========================================================================
+SAVED merged catalog -> data/merged_catalog.parquet
+  final rows: 504,138    columns: 52
+========================================================================

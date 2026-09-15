@@ -1,0 +1,85 @@
+04_recover_bulge.py -- method-validation gate
+
+========================================================================
+MAIN  bulge vs mass vs random (within-disc)
+========================================================================
+  input galaxies .................     83,929
+  quenched / star-forming .......     14,176 / 69,753   (quenched frac 0.169)
+  features: ['log_mass', 'bulge_prominence', 'random_control']
+  leaf tuning (min_samples_leaf -> AUC_train, AUC_test, gap):
+        20   0.911  0.857   gap=+0.053  (over tol)
+        50   0.888  0.862   gap=+0.025  (over tol)
+       100   0.877  0.864   gap=+0.013  (over tol)
+       150   0.872  0.862   gap=+0.010
+       250   0.868  0.864   gap=+0.004  <- chosen
+       400   0.866  0.859   gap=+0.008
+  tuned min_samples_leaf = 250
+    repeat  25/200   AUC(median so far)=0.861
+    repeat  50/200   AUC(median so far)=0.862
+    repeat  75/200   AUC(median so far)=0.862
+    repeat 100/200   AUC(median so far)=0.863
+    repeat 125/200   AUC(median so far)=0.863
+    repeat 150/200   AUC(median so far)=0.862
+    repeat 175/200   AUC(median so far)=0.862
+    repeat 200/200   AUC(median so far)=0.862
+  median test AUC = 0.862  [5th 0.858, 95th 0.867]
+  feature ranking (by permutation importance):
+      feature            perm[med (5,95)]        gini[med]
+      log_mass           +0.2193 (+0.2122,+0.2262)   0.7437
+      bulge_prominence   +0.0928 (+0.0884,+0.0978)   0.2543
+      random_control     +0.0000 (-0.0002,+0.0002)   0.0019
+
+  MAIN verdict (within-disc method check):
+    bulge beats random ........... YES (perm +0.0928 vs random +0.0000)
+    mass  beats random ........... YES (perm +0.2193)
+    forest learns (AUC > 0.60) ... YES (0.862)
+    (descriptive) leading axis ... mass (bulge +0.0928 vs mass +0.2193; expected mass-leaning in the
+                    disc-only regime with a coarse ordinal bulge proxy)
+    ==> PASS (both structural drivers informative, forest discriminates)
+========================================================================
+SIGMA  add sigma_c on the sigma-clean tier
+========================================================================
+  input galaxies .................     48,826
+  quenched / star-forming .......     12,974 / 35,852   (quenched frac 0.266)
+  features: ['log_mass', 'bulge_prominence', 'sigma_c', 'random_control']
+  leaf tuning (min_samples_leaf -> AUC_train, AUC_test, gap):
+        20   0.890  0.830   gap=+0.060  (over tol)
+        50   0.859  0.829   gap=+0.030  (over tol)
+       100   0.846  0.832   gap=+0.015  (over tol)
+       150   0.843  0.829   gap=+0.014  (over tol)
+       250   0.834  0.826   gap=+0.008  <- chosen
+       400   0.831  0.824   gap=+0.007
+  tuned min_samples_leaf = 250
+    repeat  25/200   AUC(median so far)=0.828
+    repeat  50/200   AUC(median so far)=0.828
+    repeat  75/200   AUC(median so far)=0.828
+    repeat 100/200   AUC(median so far)=0.828
+    repeat 125/200   AUC(median so far)=0.828
+    repeat 150/200   AUC(median so far)=0.828
+    repeat 175/200   AUC(median so far)=0.828
+    repeat 200/200   AUC(median so far)=0.828
+  median test AUC = 0.828  [5th 0.823, 95th 0.833]
+  feature ranking (by permutation importance):
+      feature            perm[med (5,95)]        gini[med]
+      sigma_c            +0.1985 (+0.1800,+0.2115)   0.7939
+      bulge_prominence   +0.0492 (+0.0457,+0.0548)   0.1470
+      log_mass           +0.0196 (+0.0144,+0.0254)   0.0563
+      random_control     +0.0000 (-0.0002,+0.0002)   0.0021
+
+  SIGMA verdict:
+    sigma_c is top feature ....... YES (perm +0.1985)
+    sigma_c beats random ......... YES
+    AUC > 0.60 ................... YES (0.828)
+    ==> PASS
+
+  wrote results/04_bulge_importance.csv, results/04_sigma_importance.csv
+  saved -> 04_recover_bulge.png + 04_recover_bulge.pdf
+
+========================================================================
+METHOD-VALIDATION VERDICT
+========================================================================
+  MAIN  (bulge & mass both beat random, AUC>0.6): PASS
+  SIGMA (sigma_c is the leading predictor)     : PASS
+
+  Permutation importance measures predictive reliance; correlated features affect rankings. It provides no general upper or lower bound on physical causation. Split scatter is not total uncertainty.
+  Machinery reproduces the known hierarchy -> cleared for the bar test.
