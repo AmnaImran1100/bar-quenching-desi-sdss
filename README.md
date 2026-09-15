@@ -1,5 +1,7 @@
 # bar-quenching-desi-sdss
 
+[![DOI](https://zenodo.org/badge/1371783912.svg)](https://doi.org/10.5281/zenodo.22774684)
+
 **At fixed stellar mass, bulge prominence, and redshift, do barred galaxies have a higher quenched fraction than unbarred galaxies?**
 A controlled-variable cross-check of Liu & Zhou (2026), using Galaxy Zoo DESI deep-learning morphology and SDSS MPA-JHU spectroscopic star-formation rates, masses and velocity dispersions.
 
@@ -220,11 +222,10 @@ Code (`src/`, `config.py`) is MIT licensed: [LICENSE](LICENSE). Derived data, fi
 
 ## Citation & Acknowledgements
 
-To cite this repository, use [CITATION.cff](CITATION.cff). The GitHub release will be archived on Zenodo, and its assigned DOI added here and to the citation metadata.
+To cite this repository, use [CITATION.cff](CITATION.cff). Release v1.0.0 is archived on Zenodo with the version DOI [10.5281/zenodo.22774685](https://doi.org/10.5281/zenodo.22774685); the concept DOI [10.5281/zenodo.22774684](https://doi.org/10.5281/zenodo.22774684) always resolves to the latest version.
 
-> Nagi, A. I. (2026). *bar-quenching-desi-sdss* (v1.0.0) [Software and data]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> Nagi, A. I. (2026). *bar-quenching-desi-sdss* (v1.0.0) [Software and data]. Zenodo. https://doi.org/10.5281/zenodo.22774685
 
-`XXXXXXX` is a placeholder to replace with the assigned Zenodo DOI.
 
 Please also credit the source catalogues and the methods relevant to your reuse:
 

@@ -13,7 +13,8 @@ authors:
     given-names: "Amna Imran"
     orcid: "https://orcid.org/0009-0007-3742-7883"
 version: 1.0.0
-# Add the issued Zenodo DOI and actual release date after deposit.
+doi: 10.5281/zenodo.22774685
+date-released: 2026-09-15
 repository-code: "https://github.com/AmnaImran1100/bar-quenching-desi-sdss"
 url: "https://github.com/AmnaImran1100/bar-quenching-desi-sdss"
 license: MIT
